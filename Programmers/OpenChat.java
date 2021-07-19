@@ -1,7 +1,16 @@
 import java.util.*;
 
-class Solution {
-    public String[] solution(String[] record) {
+class OpenChat {
+
+    public static void main(String[] args)
+    {
+        String[] param={"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
+        String[] ret;
+        ret = solution (param);
+        System.out.println("hello world");
+      }
+
+    public static String[] solution(String[] record) {
         String[] answer = {};
         ArrayList<String> myans = new ArrayList<String>();
         Map<String, String> map = new HashMap<String, String>();
