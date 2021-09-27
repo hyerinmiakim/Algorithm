@@ -1,64 +1,62 @@
-dfdafd
 #include <stdio.h>
-#include <queue>
 #include <vector>
-#include <algorithm>
+#include <queue>
 #include <cstring>
 using namespace std;
 
-int visit[1003];
-vector<int> a[1003];
+int visit[1001];
+vector<vector<int> > a (1001, vector<int> (1001, 0));
+int N, M, S;
 
-void bfs(int start) {
-	queue<int> q;
-	memset(visit, 0, sizeof(visit)); //dfs에서 visit을 썼기 때문에 초기화 해줌
-	q.push(start);
+void bfs(int start) 
+{
+	queue<int> que;
+	que.push(start);
 	visit[start] = true; // visit배열의 1번째에 set
-
-	while (!q.empty()) {
-		int x = q.front();
-		q.pop();
+    
+  while (!que.empty()) {
+		int x = que.front();
+		que.pop();
     printf("%d ", x);
-		for (int i = 0; i < a[x].size(); i++) {	//뽑아낸 데이터의 트리 수 만큼 for문을 돌리며 탐색	
-			int y = a[x][i];
-			if (!visit[y]) {
-				q.push(y);
-				visit[y] = true;
+		for (int i = 1; i <= N; i++) {
+      if (!visit[i] && a[x][i] == 1) {
+				que.push(i);
+				visit[i] = true;
 			}
 		}
 	}
-
-  return;
 }
 
-void dfs(int start) {
-	if (visit[start]) return;
-
-	visit[start] = true;
+void dfs(int start)
+{
 	printf("%d ", start);
-  
-	for (int i = 0; i < a[start].size(); i++) {
-		int x = a[start][i];
-		dfs(x);
-	}
 
-  return;
+	for (int i = 1; i <= N; i++) {
+		if (a[start][i] == 1 && !visit[i])
+		{
+			visit[i] = 1;
+			dfs(i);
+		}
+	}
 }
 
 int main(void) {
 
-  int line, num, _start, h1, h2;
-  scanf("%d %d %d", &line, &num, &_start);
-	for (int i = 0; i < num; i++)
+  int h1, h2;
+  scanf("%d%d%d", &N, &M, &S);
+	for (int i = 0; i < M; i++)
 	{
 		scanf("%d %d", &h1, &h2);
-		a[h1].push_back(h2);
-		a[h2].push_back(h1);
+		a[h1][h2]=1;
+		a[h2][h1]=1;
 	}
-    
-	dfs(_start); 
+
+  visit[S] = 1;
+	dfs(S); 
   printf("\n");
-  bfs(_start);
+  
+	memset(visit, 0, sizeof(visit)); //dfs에서 visit을 썼기 때문에 초기화 해줌
+  bfs(S);
 	
 	return 0;
 }
