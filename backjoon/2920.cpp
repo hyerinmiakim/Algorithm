@@ -3,28 +3,22 @@ using namespace std;
 int main()
 {
   int arr[9] = {0};
-  int flag = 0;
-  int flag2 = 0;
+  bool des = true;
+  bool asc = true;
 
   for(int i = 0; i < 8; i++)
     cin >> arr[i];
 
   for(int i = 1; i < 8; i++) {
-    if (arr[i-1] - arr[i] == 1) {
-      flag += 1;
-    }
-    else if (arr[i-1] - arr[i] == -1) {
-      flag2 += 1;
-    }
-    else if (arr[i-1] - arr[i] > 1 || arr[i-1] - arr[i] > -1)
-      continue;
+    if (arr[i-1] > arr[i])
+      asc = false;
+    else if (arr[i-1] < arr[i])
+      des = false;
   }
-  if(flag2 == 7)
+  if(asc == true)
     cout << "ascending";
-  else if (flag == 7)
+  else if (des == true)
     cout << "descending";
-  else {
-    cout << "mixed";
-  }
+  else cout << "mixed";
   return 0;
 }
