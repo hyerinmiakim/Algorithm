@@ -1,0 +1,11 @@
+*.sm
+.DS_Store
+.vscode/
+*.git 
+*.dSYM
+*.dll
+*.exe
+*.o
+*.so
+*.com
+*.class
