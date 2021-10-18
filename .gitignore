@@ -1,4 +1,5 @@
 */build/
+./backjoon/fastcampus/build/
 !*.cpp
 *.sm
 .DS_Store
