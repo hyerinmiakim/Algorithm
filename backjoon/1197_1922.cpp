@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-int root[10002];
+int root[10002]; // #1922 는 1002
 vector<pair <int, pair<int, int> > > vec;
 int depth;
 
@@ -37,7 +37,6 @@ int main() {
     int line = a.first;
     int one = a.second.first;
     int two = a.second.second;
-    printf("line:%d, one:%d, two:%d\n", line, one, two);
     Union(one, two, line);
   }
   printf("%d", depth);
