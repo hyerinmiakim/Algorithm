@@ -28,6 +28,7 @@ void getCostperMenu(vector<string> menu) {
             if(cos[j] == ' ') {
                 // 메뉴
                 if (!space) {
+                  
                     food = cnt;
                     cnt.clear();
                     space = 1; 
