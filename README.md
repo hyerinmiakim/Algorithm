@@ -1,4 +1,4 @@
-## Algorithm Study ✨
+# Algorithm Study ✨
 Study Algorithm, Sloving BOJ and Programmers, etc.
 
 🚗 목적: 코딩테스트 대비 알고리즘 및 자료구조 공부
