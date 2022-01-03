@@ -5,9 +5,9 @@ using namespace std;
 long long arr[10000001];  // 10 20 21 30 31 32 40 41 42
 int depth = 10, N;
 void Diminish() {
-  for(int i = 0; i < 1024; i++) {
+  for(int i = 0; i < N; i++) {
     for(int j = 0; j < (arr[i]%10); j++) {
-      if(depth > N || depth >= 1023) return;
+      if(depth > N) return;
       arr[depth++] = (arr[i] * 10) + j;
     }
   }
